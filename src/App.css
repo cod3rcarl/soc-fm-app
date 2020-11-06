@@ -59,6 +59,7 @@
 
 .nav-bar {
   text-align: left;
+  height: 100px;
 }
 .capitalise {
   text-transform: uppercase;

@@ -74,7 +74,7 @@ function Spotify() {
               tracks: playlist.tracks.href,
               uri: playlist.uri.slice(17),
             };
-
+            console.log(playlist.description);
             setPlaylist(newPlaylist);
             playlist.uri &&
               setUrl(
@@ -150,9 +150,9 @@ function Spotify() {
         />{" "}
       </div>
 
-      {playlist.name && <h5>{playlist.name.toUpperCase()}</h5>}
+      {playlist.name && <h5>{playlist.name}</h5>}
 
-      {playlist.description && <h5>{playlist.description.toUpperCase()}</h5>}
+      {playlist.description && <h5>{playlist.description}</h5>}
       <div className="box">
         <iframe
           title="playlist"

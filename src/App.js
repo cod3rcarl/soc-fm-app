@@ -5,9 +5,7 @@ import Spotify from "./Spotify";
 function App() {
   return (
     <div className="App">
-      <nav className="nav-bar">
-        <img className="logo" src={soc} alt="soc" />
-      </nav>
+      <nav className="nav-bar"></nav>
       <header className="App-header">
         <Spotify />
       </header>
