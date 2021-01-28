@@ -1,4 +1,3 @@
-import soc from "./soc.png";
 import "./App.css";
 import Spotify from "./Spotify";
 
