@@ -24,15 +24,10 @@ function Spotify() {
 
   useEffect(() => {
     async function getTunes() {
-      //const auth = await fetch();
-      //     "https://accounts.spotify.com/authorize?client_id=e75f118de4624c43bede99894b2522bd&response_type=code&redirect_uri=soc-spotify-app://localhost:3000%2Fcallback&scope=user-read-private%20user-read-email&state=34fFs29kd09"
 
-      //   console.log(auth);
 
-      // const request = require("request"); // "Request" library
-
-      const client_id = "e75f118de4624c43bede99894b2522bd"; // Your client id
-      const client_secret = "e9b4f023a2d94ff0a290b61d31584824"; // Your secret
+      const client_id = process.env.REACT_APP_CLIENT_ID // Your client id
+      const client_secret = process.env.REACT_APP_CLIENT_SECRET // Your secret
 
       // your application requests authorization
       const authOptions = {
@@ -48,7 +43,7 @@ function Spotify() {
         json: true,
       };
 
-      request.post(authOptions, async function (error, response, body) {
+      request.post(authOptions, async function(error, response, body) {
         if (!error && response.statusCode === 200) {
           // use the access token to access the Spotify Web API
           const token = body.access_token;
@@ -59,7 +54,7 @@ function Spotify() {
             },
             json: true,
           };
-          request.get(options, async function (error, response, body) {
+          request.get(options, async function(error, response, body) {
             console.log(body.playlists);
             // const data = await response.json();
             // console.log(data);
@@ -83,40 +78,6 @@ function Spotify() {
           });
         }
       });
-
-      // const res = await fetch(
-      //   `https://api.spotify.com/v1/browse/categories/${genre}/playlists?country=US&limit=50`,
-      //   {
-      //     headers: {
-      //       accept: "application/json",
-      //       "content-type": "application/json",
-
-      //       Authorization: `Bearer BQCFL2xvCJy43AIdaye1XDyJy0NpiPfp3IfssDZ333RVzSoMyIZkY9-OOhjJUdrzvXjuBgbA0RwAhmypA_mhyt_H4B9ZD9o1quRoq4WEqfmqeIHuTYs1gl8xlhF_EvrZIacIBeA-OtBeVAF64pg`,
-      //     },
-      //   }
-      // );
-
-      // console.log(playlist.description);
-      // console.log(playlist.uri);
-      // console.log(playlist.images);
-      // console.log(playlist.tracks.href);
-    }
-    genre && getTunes();
-  }, [playlistIndex, genre]);
-
-  // useEffect(() => {
-  //   async function getTracks() {
-  //     const res = await fetch(`${playlist.tracks}`, {
-  //       headers: {
-  //         accept: "application/json",
-  //         "content-type": "application/json",
-
-  //         Authorization: `Bearer BQCFL2xvCJy43AIdaye1XDyJy0NpiPfp3IfssDZ333RVzSoMyIZkY9-OOhjJUdrzvXjuBgbA0RwAhmypA_mhyt_H4B9ZD9o1quRoq4WEqfmqeIHuTYs1gl8xlhF_EvrZIacIBeA-OtBeVAF64pg`,
-  //       },
-  //     });
-  //   }
-  //   playlist.tracks && getTracks();
-  // }, [playlist]);
 
   return (
     <div>
