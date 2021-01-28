@@ -24,10 +24,15 @@ function Spotify() {
 
   useEffect(() => {
     async function getTunes() {
+      //const auth = await fetch();
+      //     "https://accounts.spotify.com/authorize?client_id=e75f118de4624c43bede99894b2522bd&response_type=code&redirect_uri=soc-spotify-app://localhost:3000%2Fcallback&scope=user-read-private%20user-read-email&state=34fFs29kd09"
 
+      //   console.log(auth);
 
-      const client_id = process.env.REACT_APP_CLIENT_ID // Your client id
-      const client_secret = process.env.REACT_APP_CLIENT_SECRET // Your secret
+      // const request = require("request"); // "Request" library
+
+      const client_id = process.env.REACT_APP_CLIENT_ID; // Your client id
+      const client_secret = process.env.REACT_APP_CLIENT_SECRET; // Your secret
 
       // your application requests authorization
       const authOptions = {
@@ -78,6 +83,9 @@ function Spotify() {
           });
         }
       });
+    }
+    genre && getTunes();
+  }, [playlistIndex, genre]);
 
   return (
     <div>
